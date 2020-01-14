@@ -1,0 +1,11 @@
+C:\DEVELOPMENT\CQRS-DDD Projects\DonVo.CQRS.NetCore31.Year2020\DonVo.CQRS.Standard21.Helper\bin\Debug\netstandard2.1\DonVo.CQRS.Standard21.Helper.deps.json
+C:\DEVELOPMENT\CQRS-DDD Projects\DonVo.CQRS.NetCore31.Year2020\DonVo.CQRS.Standard21.Helper\bin\Debug\netstandard2.1\DonVo.CQRS.Standard21.Helper.dll
+C:\DEVELOPMENT\CQRS-DDD Projects\DonVo.CQRS.NetCore31.Year2020\DonVo.CQRS.Standard21.Helper\bin\Debug\netstandard2.1\DonVo.CQRS.Standard21.Helper.pdb
+C:\DEVELOPMENT\CQRS-DDD Projects\DonVo.CQRS.NetCore31.Year2020\DonVo.CQRS.Standard21.Helper\bin\Debug\netstandard2.1\DonVo.CQRS.Standard21.Domain.dll
+C:\DEVELOPMENT\CQRS-DDD Projects\DonVo.CQRS.NetCore31.Year2020\DonVo.CQRS.Standard21.Helper\bin\Debug\netstandard2.1\DonVo.CQRS.Standard21.Domain.pdb
+C:\DEVELOPMENT\CQRS-DDD Projects\DonVo.CQRS.NetCore31.Year2020\DonVo.CQRS.Standard21.Helper\obj\Debug\netstandard2.1\DonVo.CQRS.Standard21.Helper.csprojAssemblyReference.cache
+C:\DEVELOPMENT\CQRS-DDD Projects\DonVo.CQRS.NetCore31.Year2020\DonVo.CQRS.Standard21.Helper\obj\Debug\netstandard2.1\DonVo.CQRS.Standard21.Helper.AssemblyInfoInputs.cache
+C:\DEVELOPMENT\CQRS-DDD Projects\DonVo.CQRS.NetCore31.Year2020\DonVo.CQRS.Standard21.Helper\obj\Debug\netstandard2.1\DonVo.CQRS.Standard21.Helper.AssemblyInfo.cs
+C:\DEVELOPMENT\CQRS-DDD Projects\DonVo.CQRS.NetCore31.Year2020\DonVo.CQRS.Standard21.Helper\obj\Debug\netstandard2.1\DonVo.CQRS.Standard21.Helper.csproj.CopyComplete
+C:\DEVELOPMENT\CQRS-DDD Projects\DonVo.CQRS.NetCore31.Year2020\DonVo.CQRS.Standard21.Helper\obj\Debug\netstandard2.1\DonVo.CQRS.Standard21.Helper.dll
+C:\DEVELOPMENT\CQRS-DDD Projects\DonVo.CQRS.NetCore31.Year2020\DonVo.CQRS.Standard21.Helper\obj\Debug\netstandard2.1\DonVo.CQRS.Standard21.Helper.pdb

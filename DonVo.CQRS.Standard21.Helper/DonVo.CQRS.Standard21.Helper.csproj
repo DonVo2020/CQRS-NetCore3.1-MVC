@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.1</TargetFramework>
+    <AssemblyName>DonVo.CQRS.Standard21.Helper</AssemblyName>
+    <RootNamespace>DonVo.CQRS.Standard21.Helper</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\DonVo.CQRS.Standard21.Domain\DonVo.CQRS.Standard21.Domain.csproj" />
+  </ItemGroup>
+
+</Project>

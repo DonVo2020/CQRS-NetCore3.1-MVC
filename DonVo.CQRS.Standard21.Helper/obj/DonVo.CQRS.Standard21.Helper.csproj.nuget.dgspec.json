@@ -1,0 +1,140 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\DEVELOPMENT\\CQRS-DDD Projects\\DonVo.CQRS.NetCore31.Year2020\\DonVo.CQRS.Standard21.Helper\\DonVo.CQRS.Standard21.Helper.csproj": {}
+  },
+  "projects": {
+    "C:\\DEVELOPMENT\\CQRS-DDD Projects\\DonVo.CQRS.NetCore31.Year2020\\DonVo.CQRS.Standard21.Domain\\DonVo.CQRS.Standard21.Domain.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\DEVELOPMENT\\CQRS-DDD Projects\\DonVo.CQRS.NetCore31.Year2020\\DonVo.CQRS.Standard21.Domain\\DonVo.CQRS.Standard21.Domain.csproj",
+        "projectName": "DonVo.CQRS.Standard21.Domain",
+        "projectPath": "C:\\DEVELOPMENT\\CQRS-DDD Projects\\DonVo.CQRS.NetCore31.Year2020\\DonVo.CQRS.Standard21.Domain\\DonVo.CQRS.Standard21.Domain.csproj",
+        "packagesPath": "C:\\Users\\dungh\\.nuget\\packages\\",
+        "outputPath": "C:\\DEVELOPMENT\\CQRS-DDD Projects\\DonVo.CQRS.NetCore31.Year2020\\DonVo.CQRS.Standard21.Domain\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Microsoft\\Xamarin\\NuGet\\",
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\dungh\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netstandard2.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netstandard2.1": {
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netstandard2.1": {
+          "dependencies": {
+            "Microsoft.AspNetCore.Identity": {
+              "target": "Package",
+              "version": "[2.2.0, )"
+            },
+            "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[3.1.0, )"
+            },
+            "Microsoft.CSharp": {
+              "target": "Package",
+              "version": "[4.7.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "NETStandard.Library": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.100\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\DEVELOPMENT\\CQRS-DDD Projects\\DonVo.CQRS.NetCore31.Year2020\\DonVo.CQRS.Standard21.Helper\\DonVo.CQRS.Standard21.Helper.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\DEVELOPMENT\\CQRS-DDD Projects\\DonVo.CQRS.NetCore31.Year2020\\DonVo.CQRS.Standard21.Helper\\DonVo.CQRS.Standard21.Helper.csproj",
+        "projectName": "DonVo.CQRS.Standard21.Helper",
+        "projectPath": "C:\\DEVELOPMENT\\CQRS-DDD Projects\\DonVo.CQRS.NetCore31.Year2020\\DonVo.CQRS.Standard21.Helper\\DonVo.CQRS.Standard21.Helper.csproj",
+        "packagesPath": "C:\\Users\\dungh\\.nuget\\packages\\",
+        "outputPath": "C:\\DEVELOPMENT\\CQRS-DDD Projects\\DonVo.CQRS.NetCore31.Year2020\\DonVo.CQRS.Standard21.Helper\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Microsoft\\Xamarin\\NuGet\\",
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\dungh\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netstandard2.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netstandard2.1": {
+            "projectReferences": {
+              "C:\\DEVELOPMENT\\CQRS-DDD Projects\\DonVo.CQRS.NetCore31.Year2020\\DonVo.CQRS.Standard21.Domain\\DonVo.CQRS.Standard21.Domain.csproj": {
+                "projectPath": "C:\\DEVELOPMENT\\CQRS-DDD Projects\\DonVo.CQRS.NetCore31.Year2020\\DonVo.CQRS.Standard21.Domain\\DonVo.CQRS.Standard21.Domain.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netstandard2.1": {
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "NETStandard.Library": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.100\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}
