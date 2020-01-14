@@ -1,0 +1,46 @@
+﻿@using DonVo.CQRS.Standard21.Domain.Model.Company
+@model DonVo.CQRS.Standard21.Application.ViewModels.Employee.ContractViewModel
+@{ViewData["Title"] = "Contract";}
+
+<div class="row m-5">
+	<div class="col-8 offset-2">
+		<form asp-action="InsertContract" method="post">
+			<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+			<input type="hidden" asp-for="Id" />
+			<input type="hidden" asp-for="EmployeeId" />
+			<input type="hidden" asp-for="RowVersion" />
+			<div class="form-row">
+				<div class="form-group col-6">
+					<label asp-for="StartDate"></label>
+					<input asp-for="StartDate" class="form-control" />
+					<span asp-validation-for="StartDate" class="text-danger"></span>
+				</div>
+				<div class="form-group col-6">
+					<label asp-for="EndDate"></label>
+					<input asp-for="EndDate" class="form-control" />
+					<span asp-validation-for="EndDate" class="text-danger"></span>
+				</div>
+			</div>
+			<div class="form-row">
+				<div class="form-group col-6">
+					<label asp-for="ContractType"></label>
+					<select asp-for="ContractType" asp-items="Html.GetEnumSelectList<ContractForm>()" class="form-control"></select>
+					<span asp-validation-for="ContractType" class="text-danger"></span>
+				</div>
+				<div class="form-group col-6">
+					<label asp-for="Remuneration"></label>
+					<input asp-for="Remuneration" class="form-control" />
+					<span asp-validation-for="Remuneration" class="text-danger"></span>
+				</div>
+			</div>
+			<div class="text-center m-5">
+				<button type="submit" class="btn btn-primary">Save</button>
+			</div>
+		</form>
+	</div>
+</div>
+
+@section Scripts
+{
+	@await Html.PartialAsync("_ValidationScriptsPartial")
+}

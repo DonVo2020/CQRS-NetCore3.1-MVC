@@ -1,0 +1,18 @@
+﻿@model DonVo.CQRS.Standard21.Application.ViewModels.Holiday.HolidayViewModel
+
+<fieldset class="form-group">
+	<legend>Add a holiday</legend>
+	<div class="row">
+		<form method="post" class="col-12">
+			<div asp-validation-summary="All" class="text-danger"></div>
+			<input type="hidden" asp-for="Id" />
+			<div class="form-group">
+				<label asp-for="Date"></label>
+				<input asp-for="Date" asp-format="{0:yyyy-MM-dd}" class="form-control">
+				<span asp-validation-for="Date" class="text-danger"></span>
+			</div>
+			<input type="hidden" asp-for="RowVersion" />
+			<button asp-action="Insert" type="submit" class="btn btn-success">Insert</button>
+		</form>
+	</div>
+</fieldset>

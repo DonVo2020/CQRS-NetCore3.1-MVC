@@ -1,0 +1,56 @@
+﻿@model IEnumerable<DonVo.CQRS.Standard21.Application.ViewModels.Employee.EmployeeLiteViewModel>
+@{ViewData["Title"] = "Employees";}
+
+<div class="row">
+	<div class="col-8">
+		<h2>Employees</h2>
+	</div>
+	<div class="col-4 text-right">
+		<a asp-action="Update" role="button" class="btn btn-primary">Add Employee</a>
+	</div>
+</div>
+<hr />
+<div class="row">
+	<div class="col-12">
+		<table class="table">
+			<thead class="thead-light">
+				<tr>
+					<th scope="col" style="width: 20%">@Html.DisplayNameFor(model => model.FirstName)</th>
+					<th scope="col" style="width: 20%">@Html.DisplayNameFor(model => model.LastName)</th>
+					<th scope="col" style="width: 10%">@Html.DisplayNameFor(model => model.Email)</th>
+					<th scope="col" style="width: 10%">@Html.DisplayNameFor(model => model.Phone)</th>
+					<th scope="col" style="width: 15%">@Html.DisplayNameFor(model => model.Department)</th>
+					<th scope="col" style="width: 15%">@Html.DisplayNameFor(model => model.Position)</th>
+					<th scope="col" style="width: 10%"></th>
+				</tr>
+			</thead>
+			<tbody>
+				@foreach (var item in Model)
+				{
+					<tr>
+						<td>@Html.DisplayFor(model => item.FirstName)</td>
+						<td>@Html.DisplayFor(model => item.LastName)</td>
+						<td>@Html.DisplayFor(model => item.Email)</td>
+						<td>@Html.DisplayFor(model => item.Phone)</td>
+						<td>@Html.DisplayFor(model => item.Department)</td>
+						<td>@Html.DisplayFor(model => item.Position)</td>
+						<td class="row">
+							<div class="col-6">
+								<a asp-action="Person" asp-route-id="@item.Id" role="button" class="btn btn-info btn-sm">Go</a>
+							</div>
+							<form asp-action="Delete" method="post" class="col-6">
+								<input type="hidden" name="id" value="@item.Id" />
+								<button type="submit" class="btn btn-danger btn-sm">Delete</button>
+							</form>
+						</td>
+					</tr>
+				}
+			</tbody>
+		</table>
+	</div>
+</div>
+
+@section Scripts
+{
+	@await Html.PartialAsync("_ValidationScriptsPartial")
+}

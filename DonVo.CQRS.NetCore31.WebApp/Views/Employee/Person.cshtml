@@ -1,0 +1,29 @@
+﻿@using Microsoft.AspNetCore.Identity
+@using DonVo.CQRS.Standard21.Domain.Model.Company
+@model DonVo.CQRS.Standard21.Application.ViewModels.Employee.EmployeeViewModel
+@inject UserManager<DonVo.CQRS.Standard21.Domain.Model.Identity.ApplicationUser> UserManager
+@{ViewData["Title"] = "Employee";}
+
+<div class="row">
+	<div class="col-2">
+		@await Html.PartialAsync("_Info", Model)
+		@await Html.PartialAsync("_Contracts", Model)
+	</div>
+	<div class="col-8">
+		@await Html.PartialAsync("_Statistics", Model.Statistics)
+		@await Html.PartialAsync("_Vacations", Model.Vacations)
+		@await Html.PartialAsync("_Requests", Model.SubordinateRequests)
+	</div>
+	<div class="col-2">
+		@if (UserManager.GetUserId(User) == Model.Id.ToString())
+		{
+			@await Html.PartialAsync("_Request", new DonVo.CQRS.Standard21.Application.ViewModels.Employee.VacationViewModel() { EmployeeId = Model.Id, StartDate = DateTimeOffset.Now.AddDays(1), EndDate = DateTimeOffset.Now.AddDays(1), VacationStatus = VacationState.Requested.ToString(), VacationTypes = Model.VacationTypes })
+		}
+		@await Html.PartialAsync("_Subordinates", Model.Subordinates)
+	</div>
+</div>
+
+@section Scripts
+{
+	@await Html.PartialAsync("_ValidationScriptsPartial")
+}

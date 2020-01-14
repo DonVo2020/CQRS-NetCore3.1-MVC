@@ -1,0 +1,40 @@
+﻿@model IEnumerable<DonVo.CQRS.Standard21.Application.ViewModels.Holiday.HolidayViewModel>
+@{ViewData["Title"] = "Holidays";}
+
+<h2>Holidays</h2><hr />
+<div class="row">
+	<div class="col-9">
+		<table class="table">
+			<thead class="thead-light">
+				<tr>
+					<th scope="col" style="width: 90%">@Html.DisplayNameFor(model => model.Date)</th>
+					<th scope="col" style="width: 10%"></th>
+				</tr>
+			</thead>
+			<tbody>
+				@foreach (var item in Model)
+				{
+					<tr>
+						<th scope="row">@Html.DisplayFor(model => item.Date)</th>
+						<td>
+							<form asp-action="Delete" method="post">
+								<input type="hidden" name="Id" value="@item.Id" />
+								<input type="hidden" name="Date" value="@item.Date" />
+								<input type="hidden" name="RowVersion" value="@item.RowVersion" />
+								<button type="submit" class="btn btn-danger btn-sm">Delete</button>
+							</form>
+						</td>
+					</tr>
+				}
+			</tbody>
+		</table>
+	</div>
+	<div class="col-3">
+		@await Html.PartialAsync("_Edit", new DonVo.CQRS.Standard21.Application.ViewModels.Holiday.HolidayViewModel() { Date = DateTimeOffset.Now })
+	</div>
+</div>
+
+@section Scripts
+{
+	@await Html.PartialAsync("_ValidationScriptsPartial")
+}

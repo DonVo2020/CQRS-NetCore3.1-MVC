@@ -1,0 +1,50 @@
+﻿@model DonVo.CQRS.Standard21.Application.ViewModels.VacationType.VacationTypeViewModel
+
+<fieldset class="form-group">
+	<legend>Add, modify or remove a vacation type</legend>
+	<div class="row">
+		<form method="post" class="col-12">
+			<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+			<input type="hidden" asp-for="Id" />
+			<div class="form-group">
+				<label asp-for="Name"></label>
+				<input asp-for="Name" class="form-control">
+				<span asp-validation-for="Name" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<label asp-for="DefaultLeaveDays"></label>
+				<input asp-for="DefaultLeaveDays" class="form-control" />
+				<span asp-validation-for="DefaultLeaveDays" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<label asp-for="IsPassing"></label>
+				<div class="row">
+					<div class="col-6">
+						<input asp-for="IsPassing" type="radio" name="IsPassing" title="true" value="@true" /> Yes
+					</div>
+					<div class="col-6">
+						<input asp-for="IsPassing" type="radio" name="IsPassing" title="false" value="@false" /> No
+					</div>
+				</div>
+			</div>
+			<div class="form-group">
+				@if (Model != null && Model.VacationTypes.Any())
+				{
+					<label asp-for="PoolId"></label>
+					<select asp-for="PoolId" asp-items="@(new SelectList(Model.VacationTypes, "Id", "Name"))" class="form-control"><option></option></select>
+					<span asp-validation-for="PoolId" class="text-danger"></span>
+				}
+			</div>
+			<input type="hidden" asp-for="RowVersion" />
+			@if (Model == null || Model.Id == 0)
+			{
+				<button asp-action="Insert" type="submit" class="btn btn-success">Insert</button>
+			}
+			@if (Model != null)
+			{
+				<button asp-action="Update" type="submit" class="btn btn-primary">Update</button>
+				<button asp-action="Delete" type="submit" class="btn btn-danger">Delete</button>
+			}
+		</form>
+	</div>
+</fieldset>

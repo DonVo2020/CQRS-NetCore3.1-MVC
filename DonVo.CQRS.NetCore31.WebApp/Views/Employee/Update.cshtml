@@ -1,0 +1,131 @@
+﻿@model DonVo.CQRS.Standard21.Application.ViewModels.Employee.EmployeeRichViewModel
+@{ViewData["Title"] = "Employee";}
+
+<form asp-action="Update" method="post">
+	<div class="row">
+		<div class="col-2">
+			@if (Model.Id > -1)
+			{
+				<h4>Available Vacation Days</h4><hr />
+				@for (int i = 0; i < Model.VacationTypes.Count(); ++i)
+				{
+					<div class="form-group">
+						<label asp-for="VacationTypes[i].Name">@Model.VacationTypes[i].Name</label>
+						<input asp-for="VacationTypes[i].Value" class="form-control" />
+						<input type="hidden" asp-for="VacationTypes[i].Id" />
+						<input type="hidden" asp-for="VacationTypes[i].Name" />
+						<input type="hidden" asp-for="VacationTypes[i].IsPassing" />
+						<input type="hidden" asp-for="VacationTypes[i].PoolId" />
+						<input type="hidden" asp-for="VacationTypes[i].RowVersion" />
+					</div>
+				}
+			}
+		</div>
+		<div class="col-8">
+			<div class="row">
+				<div class="col-12">
+					<h4>Personal Info</h4><hr />
+					<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+					<input type="hidden" asp-for="Id" />
+					<input type="hidden" asp-for="RowVersion" />
+					<div class="form-row">
+						<div class="form-group col-6">
+							<label asp-for="FirstName"></label>
+							<input asp-for="FirstName" class="form-control" />
+							<span asp-validation-for="FirstName" class="text-danger"></span>
+						</div>
+						<div class="form-group col-6">
+							<label asp-for="LastName"></label>
+							<input asp-for="LastName" class="form-control" />
+							<span asp-validation-for="LastName" class="text-danger"></span>
+						</div>
+					</div>
+					<div class="form-row">
+						<div class="form-group col-6">
+							<label asp-for="Gender"></label>
+							<div class="row">
+								<div class="col-6">
+									<input asp-for="Gender" type="radio" name="Gender" title="Male" value="Male" /> Male
+								</div>
+								<div class="col-6">
+									<input asp-for="Gender" type="radio" name="Gender" title="Female" value="Female" /> Female
+								</div>
+							</div>
+						</div>
+						<div class="form-group col-6">
+							<label asp-for="BirthDate"></label>
+							<input asp-for="BirthDate" class="form-control" />
+							<span asp-validation-for="BirthDate" class="text-danger"></span>
+						</div>
+					</div>
+					<div class="form-row">
+						<div class="form-group col-6">
+							<label asp-for="Email"></label>
+							<input asp-for="Email" class="form-control" />
+							<span asp-validation-for="Email" class="text-danger"></span>
+						</div>
+						<div class="form-group col-6">
+							<label asp-for="Phone"></label>
+							<input asp-for="Phone" class="form-control" />
+							<span asp-validation-for="Phone" class="text-danger"></span>
+						</div>
+					</div>
+					<div class="form-row">
+						<div class="form-group col-4">
+							<label asp-for="Street"></label>
+							<input asp-for="Street" class="form-control" />
+							<span asp-validation-for="Street" class="text-danger"></span>
+						</div>
+						<div class="form-group col-4">
+							<label asp-for="PostalCode"></label>
+							<input asp-for="PostalCode" class="form-control" />
+							<span asp-validation-for="PostalCode" class="text-danger"></span>
+						</div>
+						<div class="form-group col-4">
+							<label asp-for="City"></label>
+							<input asp-for="City" class="form-control" />
+							<span asp-validation-for="City" class="text-danger"></span>
+						</div>
+					</div>
+					<div class="form-row">
+						<div class="form-group col-4">
+							<label asp-for="PositionId"></label>
+							<select asp-for="PositionId" asp-items="@(new SelectList(Model.Positions, "Id", "Name"))" class="form-control"></select>
+							<span asp-validation-for="PositionId" class="text-danger"></span>
+						</div>
+						<div class="form-group col-4">
+							<label asp-for="DepartmentId"></label>
+							<select asp-for="DepartmentId" asp-items="@(new SelectList(Model.Departments, "Id", "Name"))" class="form-control"></select>
+							<span asp-validation-for="DepartmentId" class="text-danger"></span>
+						</div>
+						<div class="form-group col-4">
+							<label asp-for="ManagerId"></label>
+							<select asp-for="ManagerId" asp-items="@(new SelectList(Model.Employees, "Id", "FullName"))" class="form-control"><option></option></select>
+							<span asp-validation-for="ManagerId" class="text-danger"></span>
+						</div>
+					</div>
+					<div class="text-center m-5">
+						<button type="submit" class="btn btn-primary">Save</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-2">
+			<h4>Roles</h4><hr />
+			@for (int i = 0; i < Model.Roles.Count(); ++i)
+			{
+				<div class="form-group">
+					<input asp-for="Roles[i].Granted" type="checkbox" title="@Model.Roles[i].Name" />
+					<label asp-for="Roles[i].Granted" class="ml-1">@Model.Roles[i].Name</label> Role
+					<input type="hidden" asp-for="Roles[i].Id" />
+					<input type="hidden" asp-for="Roles[i].Name" />
+				</div>
+			}
+		</div>
+	</div>
+</form>
+
+@section Scripts
+{
+	@await Html.PartialAsync("_ValidationScriptsPartial")
+}

@@ -1,0 +1,65 @@
+﻿@using Microsoft.AspNetCore.Identity
+@using DonVo.CQRS.Standard21.Domain.Model.Identity
+@model IEnumerable<DonVo.CQRS.Standard21.Application.ViewModels.Employee.VacationViewModel>
+@inject UserManager<DonVo.CQRS.Standard21.Domain.Model.Identity.ApplicationUser> UserManager
+
+<h4>Subordinate requests</h4><hr />
+<div class="row mb-5">
+	<div class="col-12">
+		<table class="table">
+			<thead class="thead-light">
+				<tr>
+					<th scope="col" style="width: 15%">@Html.DisplayNameFor(model => model.StartDate)</th>
+					<th scope="col" style="width: 15%">@Html.DisplayNameFor(model => model.EndDate)</th>
+					<th scope="col" style="width: 15%">@Html.DisplayNameFor(model => model.WorkingDaysAmount)</th>
+					<th scope="col" style="width: 20%">@Html.DisplayNameFor(model => model.VacationType)</th>
+					<th scope="col" style="width: 20%">@Html.DisplayNameFor(model => model.EmployeeName)</th>
+					<th scope="col" style="width: 15%"></th>
+				</tr>
+			</thead>
+			<tbody>
+				@foreach (var item in Model)
+				{
+					<tr>
+						<td>@Html.DisplayFor(model => item.StartDate)</td>
+						<td>@Html.DisplayFor(model => item.EndDate)</td>
+						<td>@Html.DisplayFor(model => item.WorkingDaysAmount)</td>
+						<td>@Html.DisplayFor(model => item.VacationType)</td>
+						<td>@Html.DisplayFor(model => item.EmployeeName)</td>
+						<td>
+							<form method="post">
+								<input type="hidden" name="Id" value="@item.Id" />
+								<input type="hidden" name="EmployeeId" value="@item.EmployeeId" />
+								<input type="hidden" name="StartDate" value="@item.StartDate" />
+								<input type="hidden" name="EndDate" value="@item.EndDate" />
+								<input type="hidden" name="VacationType" value="@item.VacationType" />
+								<input type="hidden" name="VacationStatus" value="@item.VacationStatus" />
+								<input type="hidden" name="RowVersion" value="@item.RowVersion" />
+								@if (item.VacationStatus == "Requested" && (User.IsInRole(Role.VacationManagement.ToString()) || User.IsInRole(Role.CompanyManagement.ToString())))
+								{
+									<button type="submit" asp-action="AcceptVacation" class="btn btn-success btn-sm">Accept</button>
+									<button type="submit" asp-action="RejectVacation" class="btn btn-danger btn-sm">Reject</button>
+								}
+							</form>
+						</td>
+					</tr>
+				}
+			</tbody>
+			<tfoot>
+				<tr>
+					<td colspan="6" class="text-right">
+						@if (!Context.Request.QueryString.Value.Contains("more"))
+						{
+							<a asp-action="Person" asp-route-id="@ViewContext.RouteData.Values["id"]" asp-route-year="@ViewContext.RouteData.Values["year"]" asp-route-more="true" role="button" class="btn btn-info btn-sm">More</a>
+						}
+					</td>
+				</tr>
+			</tfoot>
+		</table>
+	</div>
+</div>
+
+@section Scripts
+{
+	@await Html.PartialAsync("_ValidationScriptsPartial")
+}

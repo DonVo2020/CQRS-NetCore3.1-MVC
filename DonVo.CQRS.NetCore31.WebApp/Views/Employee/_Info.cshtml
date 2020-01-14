@@ -1,0 +1,36 @@
+﻿@using DonVo.CQRS.Standard21.Domain.Model.Identity
+@model DonVo.CQRS.Standard21.Application.ViewModels.Employee.EmployeeViewModel
+
+<div class="card bg-light mb-5">
+	<div class="card-header">@Model.FirstName @Model.LastName</div>
+	<div class="card-body">
+		<small>Birth Date</small><br />
+		<label>@Model.BirthDate.Date.ToShortDateString()</label><br />
+		<small>Gender</small><br />
+		<label>@Model.Gender</label><br />
+		<address>
+			<small>Email</small><br />
+			<label>@Model.Email</label><br />
+			<small>Phone</small><br />
+			<label>@Model.Phone</label><br />
+			<small>Address</small><br />
+			@Model.Street<br />
+			@Model.PostalCode
+			@Model.City
+		</address>
+		<small>Department</small><br />
+		<label>@Model.Department.Name</label><br />
+		<small>Position</small><br />
+		<label>@Model.Position.Name</label><br />
+		@if (Model.Manager != null)
+		{
+			<small>Manager</small><br />
+			<label>@Model.Manager</label><br />
+		}
+		<br />
+		@if (User.IsInRole(Role.CompanyManagement.ToString()))
+		{
+			<a asp-action="Update" asp-route-id="@Model.Id" role="button" class="btn btn-info pull-right">Modify</a>
+		}
+	</div>
+</div>

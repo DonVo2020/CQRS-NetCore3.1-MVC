@@ -1,0 +1,36 @@
+﻿@model DonVo.CQRS.Standard21.Application.ViewModels.Position.PositionViewModel
+
+<fieldset class="form-group">
+	<legend>Add, modify or remove a position</legend>
+	<div class="row">
+		<form method="post" class="col-12">
+			<div asp-validation-summary="All" class="text-danger"></div>
+			<input type="hidden" asp-for="Id" />
+			<div class="form-group">
+				<label asp-for="Name"></label>
+				<input asp-for="Name" class="form-control">
+				<span asp-validation-for="Name" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<label asp-for="Description"></label>
+				<textarea asp-for="Description" rows="4" class="form-control"></textarea>
+				<span asp-validation-for="Description" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<label asp-for="Grade"></label>
+				<input asp-for="Grade" class="form-control">
+				<span asp-validation-for="Grade" class="text-danger"></span>
+			</div>
+			<input type="hidden" asp-for="RowVersion" />
+			@if (Model == null || Model.Id == 0)
+			{
+				<button asp-action="Insert" type="submit" class="btn btn-success">Insert</button>
+			}
+			@if (Model != null)
+			{
+				<button asp-action="Update" type="submit" class="btn btn-primary">Update</button>
+				<button asp-action="Delete" type="submit" class="btn btn-danger">Delete</button>
+			}
+		</form>
+	</div>
+</fieldset>

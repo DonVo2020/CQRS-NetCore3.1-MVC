@@ -1,0 +1,65 @@
+﻿@using Microsoft.AspNetCore.Identity
+@using DonVo.CQRS.Standard21.Domain.Model.Identity
+@model DonVo.CQRS.Standard21.Application.ViewModels.Employee.EmployeeViewModel
+@inject UserManager<DonVo.CQRS.Standard21.Domain.Model.Identity.ApplicationUser> UserManager
+
+<fieldset class="form-group mb-5">
+	<legend>Contracts</legend><hr />
+	<div>
+		@foreach (var item in Model.Contracts)
+		{
+			<form asp-action="DeleteContract" method="post">
+				<input type="hidden" name="Id" asp-for="@item.Id" />
+				<input type="hidden" name="EmployeeId" asp-for="@item.EmployeeId" />
+				<input type="hidden" name="RowVersion" asp-for="@item.RowVersion" />
+				<div class="row">
+					<div class="col-6">
+						<small>Start Date</small><br />
+						<label for="StartDate">@item.StartDate.Date.ToShortDateString()</label>
+						<input type="hidden" name="StartDate" value="@item.StartDate" />
+					</div>
+					<div class="col-6">
+						<small>End Date</small><br />
+						@if (item.EndDate.HasValue)
+						{
+							<label for="EndDate">@item.EndDate.Value.Date.ToShortDateString()</label>
+							<input type="hidden" name="EndDate" value="@item.EndDate" />
+						}
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-6">
+						<small>Type</small><br />
+						<label for="ContractType">@item.ContractType</label>
+						<input type="hidden" name="ContractType" value="@item.ContractType" />
+					</div>
+					<div class="col-6">
+						<small>Remuneration</small><br />
+						<label for="Remuneration">@item.Remuneration</label>
+						<input type="hidden" name="Remuneration" value="@item.Remuneration" />
+					</div>
+				</div>
+				@if (User.IsInRole(Role.CompanyManagement.ToString()))
+				{
+					<div class="text-right">
+						<button type="submit" class="btn btn-danger btn-sm">Delete</button>
+					</div>
+				}
+			</form>
+			<hr />
+		}
+	</div>
+	@if (User.IsInRole(Role.CompanyManagement.ToString()))
+	{
+		<div class="row">
+			<div class="col-12">
+				<a asp-action="InsertContract" asp-route-employeeid="@Model.Id" role="button" class="btn btn-info pull-right">Add Contract</a>
+			</div>
+		</div>
+	}
+</fieldset>
+
+@section Scripts
+{
+	@await Html.PartialAsync("_ValidationScriptsPartial")
+}

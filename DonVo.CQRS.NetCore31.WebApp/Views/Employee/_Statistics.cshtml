@@ -1,0 +1,50 @@
+﻿@model List<DonVo.CQRS.Standard21.Application.ViewModels.Employee.StatisticViewModel>
+
+<div class="card text-center mb-5">
+	<div class="card-header">
+		@if (Model.Any())
+		{
+			<div class="row">
+				<div class="col text-left">
+					<a asp-action="Person" asp-route-year="@(Model.First().Year - 1)"><i style="color: black" class="fas fa-chevron-left fa-2x" aria-hidden="true" title="Previous Year"></i></a>
+				</div>
+				<div class="col">
+					<h4>@Model.First().Year</h4>
+				</div>
+				<div class="col text-right">
+					<a asp-action="Person" asp-route-year="@(Model.First().Year + 1)"><i style="color: black" class="fas fa-chevron-right fa-2x" title="Next Year"></i></a>
+				</div>
+			</div>
+		}
+	</div>
+	<div class="card-body">
+		@foreach (var item in Model)
+		{
+			<div class="row alert alert-secondary">
+				<div class="col-2 pt-3">
+					<h3>@item.Type</h3>
+				</div>
+				<div class="col-2">
+					<label>Total Days</label>
+					<h4><span class="badge badge-dark">@item.TotalVacationDays</span></h4>
+				</div>
+				<div class="col-2">
+					<label>Accepted</label>
+					<h4><span class="badge badge-success">@item.Accepted</span></h4>
+				</div>
+				<div class="col-2">
+					<label>Rejected</label>
+					<h4><span class="badge badge-danger">@item.Rejected</span></h4>
+				</div>
+				<div class="col-2">
+					<label>Cancelled</label>
+					<h4><span class="badge badge-warning">@item.Cancelled</span></h4>
+				</div>
+				<div class="col-2">
+					<label>Days Left</label>
+					<h4><span class="badge badge-dark">@(item.DaysLeft)</span></h4>
+				</div>
+			</div>
+		}
+	</div>
+</div>
